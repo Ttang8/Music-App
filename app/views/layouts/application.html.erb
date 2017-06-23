@@ -9,6 +9,15 @@
   </head>
 
   <body>
+
+    <% if current_user.nil? %>
+    <%= link_to "Sign In Yo", new_session_url %>
+    <%= link_to "Sign Up Yo", new_user_url %>
+  <% else %>
+    Hi <%= current_user.email  %>
+    <%= button_to "Log Out :(", session_url, method: :delete%>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
